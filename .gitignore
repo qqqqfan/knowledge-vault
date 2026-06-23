@@ -1,0 +1,14 @@
+# Python
+__pycache__/
+*.pyc
+
+# Local config and secrets — never commit these
+vault-profile.json
+.env
+.knowledge-vault.env
+
+# Runtime cache (extracted notes, deletion log)
+.cache/
+
+# Logs
+*.log

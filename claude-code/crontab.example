@@ -1,0 +1,20 @@
+# knowledge-vault crontab examples
+# Edit with: crontab -e
+#
+# Keep your API key out of the crontab itself. Put it in a file only you can
+# read, then source it before the command:
+#
+#   echo 'export ANTHROPIC_API_KEY=sk-...' > ~/.knowledge-vault.env
+#   chmod 600 ~/.knowledge-vault.env
+#
+# The lines below source that file, so the key never appears in `crontab -l`
+# output or in the process list.
+
+# Daily at 18:00
+0 18 * * * . ~/.knowledge-vault.env && cd /path/to/knowledge-vault/claude-code && python vault_agent.py collect >> ~/.knowledge-vault.log 2>&1
+
+# Weekdays only at 18:00
+0 18 * * 1-5 . ~/.knowledge-vault.env && cd /path/to/knowledge-vault/claude-code && python vault_agent.py collect >> ~/.knowledge-vault.log 2>&1
+
+# Twice daily (9am + 6pm)
+0 9,18 * * * . ~/.knowledge-vault.env && cd /path/to/knowledge-vault/claude-code && python vault_agent.py collect >> ~/.knowledge-vault.log 2>&1

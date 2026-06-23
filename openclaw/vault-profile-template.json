@@ -1,0 +1,11 @@
+{
+  "vault_path": "/Users/yourname/Documents/MyVault",
+  "style": {
+    "folder_depth": 2,
+    "note_length": "medium",
+    "link_density": "high",
+    "use_moc": true
+  },
+  "calibration_log": [],
+  "user_interest_signals": {}
+}
