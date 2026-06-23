@@ -64,9 +64,21 @@ When in doubt, lean toward **not** writing a note. A sparse, high-signal vault i
 
 ---
 
+## Where notes go — reuse the vault's existing taxonomy
+
+**Before writing anything, learn the folder taxonomy the user already uses, and write into it. Do NOT invent a parallel set of folders.** This is the single most common failure mode: the user has a categorization scheme they arrived at deliberately (often refined with help over time), and inventing your own theme folders silently throws it away.
+
+1. Glob the whole vault (not just `notes_folder`) and look at the **top-level folders** — e.g. `工作 / 项目 / 知识 / 方法论`, or `Knowledge / Frameworks / Projects / Inbox`. That set is the user's taxonomy. Treat it as fixed.
+2. Place each note in the category that fits. A useful default split: **knowledge** (what X is / how it works — definitions, mechanisms, facts) vs **methodology** (how to do / how to judge — frameworks, procedures, heuristics) vs **project** (decisions and lessons specific to one project) vs **work** (reusable SOPs for recurring tasks).
+3. Sub-folders *within* a category are fine and encouraged when the category has many notes — mirror the depth the vault already uses.
+4. If `notes_folder` is a fresh/empty folder but the wider vault has an established taxonomy, **reuse that same taxonomy inside `notes_folder`** rather than starting from scratch.
+5. Only when the vault has no discernible taxonomy at all should you fall back to the recommended starter structure (Knowledge / Frameworks / Projects / Inbox). Even then, ask the user before committing to a scheme.
+
+If you're unsure which category a note belongs in, ask — don't guess and don't create a new top-level folder to sidestep the decision.
+
 ## Note format
 
-**Before writing, match the vault's existing style.** Glob a few notes under `notes_folder` (or the wider vault) and look at: folder depth, note length, heading structure, link density. Write new notes to match what's there, not this template verbatim.
+**Match the vault's existing note style too.** Glob a few real notes and look at: note length, heading structure, link density, the metadata header (e.g. `**建立于** | **优先级**`). Write new notes to match what's there, not this template verbatim.
 
 Default shape (adapt to the vault):
 
@@ -160,7 +172,7 @@ Force-save the thing the user just pointed at, regardless of the P1–P3 bar. St
 
 1. **The user sets the bar.** P0–P3 above. Skip sensitive content always, even if asked — flag it instead.
 2. **Deletion is feedback.** Sync reads deletions back. Never restore a deleted note; self-calibrate scoring. This fires at sync time — no background watcher.
-3. **Adapt to the vault's style.** Read existing notes first; match folder depth, length, link density.
+3. **Reuse the vault's taxonomy — don't invent one.** Read the existing top-level folders first and write into them; match note length and link density. Never create a parallel folder scheme (see "Where notes go").
 4. **Transparent, not magic.** Every sync produces a changelog. The user can always ask "why did you save / skip / delete X".
 
 ---
